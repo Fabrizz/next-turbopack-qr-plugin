@@ -1,0 +1,42 @@
+{
+  "name": "next-turbopack-qr-plugin",
+  "version": "1.0.0",
+  "description": "Simple Next-Turbopack plugin that displays a QR code on the console for easy local development",
+  "homepage": "https://fabriz.co/",
+  "keywords": [
+    "nextjs",
+    "turbopack",
+    "qr",
+    "terminal",
+    "development",
+    "devtools"
+  ],
+  "license": "MIT",
+  "author": "Fabrizz",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "node build.mjs && tsc --emitDeclarationOnly",
+    "dev": "node --watch build.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.3",
+    "esbuild": "^0.27.3",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "qrcode-terminal": "^0.12.0"
+  },
+  "peerDependencies": {
+    "next": ">=13.0.0"
+  }
+}
