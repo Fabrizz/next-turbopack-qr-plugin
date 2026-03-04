@@ -8,16 +8,25 @@ export interface LocalQROptions {
   silent?: boolean;
 }
 
+// Prefixes typically assigned to virtual/VPN adapters — deprioritized
+const VIRTUAL_PREFIXES = ["192.168.56.", "192.168.99.", "10.0.2.", "172.17.", "172.18."];
+
 function getLocalIPAddress(): string {
   const interfaces = os.networkInterfaces();
+  const candidates: string[] = [];
+
   for (const name of Object.keys(interfaces)) {
     for (const iface of interfaces[name] ?? []) {
-      if (iface.family === "IPv4" && !iface.internal) {
-        return iface.address;
+      if (iface.family !== "IPv4" || iface.internal) continue;
+      if (VIRTUAL_PREFIXES.some((p) => iface.address.startsWith(p))) {
+        candidates.push(iface.address); // keep as fallback
+      } else {
+        return iface.address; // real interface — return immediately
       }
     }
   }
-  return "localhost";
+
+  return candidates[0] ?? "localhost";
 }
 
 function printQR(url: string): void {
