@@ -19,6 +19,8 @@ export default withLocalQR({
 });
 ```
 
+> Will prioritie normal interfaces over virtual ones (ex: VirtualBox Virtual Adapter)
+
 ## Options
 
 ```ts
