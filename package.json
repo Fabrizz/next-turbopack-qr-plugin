@@ -1,6 +1,6 @@
 {
   "name": "next-turbopack-qr-plugin",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple Next-Turbopack plugin that displays a QR code on the console for easy local development",
   "homepage": "https://fabriz.co/",
   "keywords": [
