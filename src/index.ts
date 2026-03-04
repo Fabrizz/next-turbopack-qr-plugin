@@ -26,7 +26,7 @@ function printQR(url: string): void {
     const qrcode = require("qrcode-terminal") as {
       generate: (text: string, opts: { small: boolean }, cb: (qr: string) => void) => void;
     };
-    console.log(`\n Scan to preview Next app: \x1B[36m${url}\x1B[0m`);
+    console.log(`\n → Scan to preview: \x1B[36m${url}\x1B[0m`);
 
     qrcode.generate(url, { small: true }, (qr: string) => {
       const indented = qr
