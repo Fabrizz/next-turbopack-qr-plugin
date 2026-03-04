@@ -34,8 +34,6 @@ MIT
 
 <br/>
 
-<img alt="Fabrizz logo" src="./.github/logo.png" width="92"><br/>
-
 #
 
 [<img alt="Fabrizz logo" src="./.github/fabriz.png" width="92" align="right">](https://fabriz.co)
